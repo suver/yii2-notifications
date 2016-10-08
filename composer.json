@@ -1,0 +1,21 @@
+{
+    "name": "suver/yii2-notifications",
+    "description": "You notifications",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","notifications","farpse"],
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Suver",
+            "email": "suver@farpse.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "suver\\notifications\\": ""
+        }
+    }
+}
