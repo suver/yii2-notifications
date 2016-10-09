@@ -6,6 +6,19 @@ class m161008_180332_notifications extends Migration
 {
     public function up()
     {
+
+
+        $this->db->createCommand("CREATE TABLE `suver_notifications_template` ( 
+                `key` VARCHAR(100) NOT NULL , 
+                `language` VARCHAR(10) NOT NULL DEFAULT 'default', 
+                `bind` TINYINT NULL DEFAULT '0', 
+                `description` TEXT NULL DEFAULT NULL , 
+                `template` TEXT NULL DEFAULT NULL , 
+                `created_at` TIMESTAMP NULL DEFAULT NULL , 
+                `updated_at` TIMESTAMP NULL DEFAULT NULL , 
+                PRIMARY KEY (`key`, `language`)
+            ) ENGINE = InnoDB;")->execute();
+
         $this->db->createCommand("CREATE TABLE `suver_notifications` ( 
                 `id` BIGINT(20) NOT NULL AUTO_INCREMENT , 
                 `user_id` BIGINT(20) NOT NULL , 

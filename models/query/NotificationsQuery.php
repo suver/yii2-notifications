@@ -1,6 +1,6 @@
 <?php
 
-namespace suver\notifications\models;
+namespace suver\notifications\models\query;
 
 /**
  * This is the ActiveQuery class for [[Notifications]].

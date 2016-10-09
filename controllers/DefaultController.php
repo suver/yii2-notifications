@@ -2,6 +2,8 @@
 
 namespace suver\notifications\controllers;
 
+use suver\notifications\Notification;
+use suver\notifications\Notifications;
 use yii\web\Controller;
 
 /**
@@ -15,6 +17,8 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
+        $notifications = Notifications::get(\Yii::$app->user->getId())->setViewed();
+
         return $this->render('index');
     }
 }

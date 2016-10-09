@@ -2,6 +2,7 @@
 
 namespace suver\notifications\models;
 
+use suver\notifications\models\query\NotificationsQuery;
 use Yii;
 use yii\behaviors\TimestampBehavior;
 use yii\db\Expression;
