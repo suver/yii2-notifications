@@ -17,7 +17,18 @@ class DefaultController extends Controller
      */
     public function actionIndex()
     {
-        $notifications = Notifications::get(\Yii::$app->user->getId())->setViewed();
+        //$notifications = Notifications::get(\Yii::$app->user->getId())->setViewed();
+
+        return $this->render('index');
+    }
+
+    /**
+     * Renders the index view for the module
+     * @return string
+     */
+    public function actionView($id)
+    {
+        var_dump($id);exit;
 
         return $this->render('index');
     }

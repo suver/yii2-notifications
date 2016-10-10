@@ -1,0 +1,14 @@
+.field-notificationstemplate-description .CodeMirror,
+.field-notificationstemplate-description .CodeMirror-scroll {
+    min-height: 100px;
+}
+
+.field-notificationstemplate-params .CodeMirror,
+.field-notificationstemplate-params .CodeMirror-scroll {
+    min-height: 100px;
+}
+
+.field-notificationstemplate-template .CodeMirror,
+.field-notificationstemplate-template .CodeMirror-scroll {
+    min-height: 200px;
+}

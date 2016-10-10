@@ -8,9 +8,9 @@ use yii\data\ActiveDataProvider;
 use suver\notifications\models\NotificationsTemplate;
 
 /**
- * BookCatalogSearch represents the model behind the search form about `common\modules\books\models\Catalog`.
+ * NotificationsTemplateSearch represents the model behind the search form about `suver\notifications\models\NotificationsTemplate`.
  */
-class NotificationsTemplateSearch extends Catalog
+class NotificationsTemplateSearch extends NotificationsTemplate
 {
     public $authors;
 
@@ -23,7 +23,9 @@ class NotificationsTemplateSearch extends Catalog
             [['bind'], 'integer'],
             [['created_at', 'updated_at'], 'safe'],
             [['key'], 'string', 'max' => 100],
+            [['title', 'subject'], 'string'],
             [['language'], 'string', 'max' => 10],
+            [['title', 'subject'], 'string', 'max' => 255],
         ];
     }
 
@@ -52,15 +54,17 @@ class NotificationsTemplateSearch extends Catalog
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
             'sort'=> [
-                'defaultOrder' => ['id'=>SORT_DESC],
+                'defaultOrder' => ['key'=>SORT_DESC],
                 'attributes' => [
                     'key',
+                    'title',
+                    'subject',
                     'language',
                     'bind',
                 ]
             ],
             'pagination' => [
-                'pageSize' => \Yii::$app->getModule('books')->params['defaultNotificationsTemplatePerPage'],
+                'pageSize' => \suver\notifications\Module::getInstance()->defaultNotificationsTemplatePerPage,
             ],
 
         ]);
@@ -75,7 +79,6 @@ class NotificationsTemplateSearch extends Catalog
 
         // grid filtering conditions
         $query->andFilterWhere([
-            'id' => $this->id,
             'bind' => $this->bind,
             'language' => $this->language,
             'created_at' => $this->created_at,
@@ -84,6 +87,8 @@ class NotificationsTemplateSearch extends Catalog
         ]);
 
         $query->andFilterWhere(['like', 'key', $this->key]);
+        $query->andFilterWhere(['like', 'title', $this->title]);
+        $query->andFilterWhere(['like', 'subject', $this->subject]);
 
         return $dataProvider;
     }

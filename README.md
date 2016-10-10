@@ -21,7 +21,7 @@ or add
 Install migrations
 
 ```bash
-yii migrate --migrationPath=@vendor/suver/yii2-notificatoins/migrations
+yii migrate --migrationPath=@vendor/suver/yii2-notifications/migrations
 ```
 
 How USE

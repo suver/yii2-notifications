@@ -10,7 +10,7 @@ use suver\notifications\models\Notifications;
 /**
  * NotificationsSearch represents the model behind the search form about `suver\notifications\models\Notifications`.
  */
-class NotificationsSearch extends Authors
+class NotificationsSearch extends Notifications
 {
     /**
      * @inheritdoc
@@ -20,6 +20,7 @@ class NotificationsSearch extends Authors
         return [
             [['id'], 'integer'],
             [['user_id', 'type', 'channel'], 'integer'],
+            [['subject'], 'string', 'max' => 255],
             [['updated_at', 'created_at', 'viewed_at'], 'safe'],
         ];
     }
@@ -52,7 +53,7 @@ class NotificationsSearch extends Authors
                 'defaultOrder' => ['id'=>SORT_DESC]
             ],
             'pagination' => [
-                'pageSize' => \Yii::$app->getModule('books')->params['defaultNotificationsPerPage'],
+                'pageSize' => \suver\notifications\Module::getInstance()->defaultNotificationsPerPage,
             ],
         ]);
 
@@ -72,7 +73,10 @@ class NotificationsSearch extends Authors
             'channel' => $this->channel,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'viewed_at' => $this->viewed_at,
         ]);
+
+        $query->andFilterWhere(['like', 'subject', $this->subject]);
 
         return $dataProvider;
     }

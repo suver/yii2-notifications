@@ -12,8 +12,11 @@ class m161008_180332_notifications extends Migration
                 `key` VARCHAR(100) NOT NULL , 
                 `language` VARCHAR(10) NOT NULL DEFAULT 'default', 
                 `bind` TINYINT NULL DEFAULT '0', 
+                `title` VARCHAR(255) NULL DEFAULT NULL ,
                 `description` TEXT NULL DEFAULT NULL , 
+                `subject` VARCHAR(255) NULL DEFAULT NULL ,
                 `template` TEXT NULL DEFAULT NULL , 
+                `params` TEXT NULL DEFAULT NULL , 
                 `created_at` TIMESTAMP NULL DEFAULT NULL , 
                 `updated_at` TIMESTAMP NULL DEFAULT NULL , 
                 PRIMARY KEY (`key`, `language`)
@@ -22,7 +25,8 @@ class m161008_180332_notifications extends Migration
         $this->db->createCommand("CREATE TABLE `suver_notifications` ( 
                 `id` BIGINT(20) NOT NULL AUTO_INCREMENT , 
                 `user_id` BIGINT(20) NOT NULL , 
-                `type` TINYINT(2) NULL DEFAULT NULL , 
+                `type` TINYINT(2) NULL DEFAULT NULL ,
+                `subject` VARCHAR(255) NULL DEFAULT NULL , 
                 `message` TEXT NULL DEFAULT NULL , 
                 `params` TEXT NULL DEFAULT NULL , 
                 `channel` TINYINT(2) NULL DEFAULT NULL , 

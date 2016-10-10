@@ -48,7 +48,8 @@ class Notifications extends \yii\db\ActiveRecord
         return [
             [['user_id'], 'required'],
             [['user_id', 'type', 'channel'], 'integer'],
-            [['message', 'params'], 'string'],
+            [['message', 'subject', 'params'], 'string'],
+            [['subject'], 'string', 'max' => 255],
             [['updated_at', 'created_at', 'viewed_at'], 'safe'],
         ];
     }
@@ -62,6 +63,7 @@ class Notifications extends \yii\db\ActiveRecord
             'id' => Yii::t('common', 'ID'),
             'user_id' => Yii::t('common', 'ID пользователя'),
             'type' => Yii::t('common', 'Тип'),
+            'subject' => Yii::t('common', 'Тема'),
             'message' => Yii::t('common', 'Сообщение'),
             'params' => Yii::t('common', 'Параметры'),
             'channel' => Yii::t('common', 'Канал'),

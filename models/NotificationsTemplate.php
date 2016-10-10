@@ -4,6 +4,8 @@ namespace suver\notifications\models;
 
 use suver\notifications\models\query\NotificationsTemplateQuery;
 use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\Expression;
 
 /**
  * This is the model class for table "{{%suver_notifications_template}}".
@@ -38,6 +40,16 @@ class NotificationsTemplate extends \yii\db\ActiveRecord
         return isset(static::$bind[$bind]) ? static::$bind[$bind] : null;
     }
 
+    public function behaviors()
+    {
+        return [
+            [
+                'class' => TimestampBehavior::className(),
+                'value' => new Expression('NOW()'),
+            ],
+        ];
+    }
+
     /**
      * @inheritdoc
      */
@@ -54,9 +66,10 @@ class NotificationsTemplate extends \yii\db\ActiveRecord
         return [
             [['key', 'language'], 'required'],
             [['bind'], 'integer'],
-            [['description', 'template'], 'string'],
+            [['description', 'title', 'subject', 'template', 'params'], 'string'],
             [['created_at', 'updated_at'], 'safe'],
             [['key'], 'string', 'max' => 100],
+            [['title', 'subject'], 'string', 'max' => 255],
             [['language'], 'string', 'max' => 10],
         ];
     }
@@ -67,13 +80,16 @@ class NotificationsTemplate extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'key' => Yii::t('common', 'Key'),
-            'language' => Yii::t('common', 'Language'),
-            'bind' => Yii::t('common', 'Bind'),
-            'description' => Yii::t('common', 'Description'),
-            'template' => Yii::t('common', 'Template'),
-            'created_at' => Yii::t('common', 'Created At'),
-            'updated_at' => Yii::t('common', 'Updated At'),
+            'key' => Yii::t('common', 'Ключь'),
+            'language' => Yii::t('common', 'Язык'),
+            'bind' => Yii::t('common', 'Закреплено?'),
+            'description' => Yii::t('common', 'Описнаие'),
+            'title' => Yii::t('common', 'Название'),
+            'subject' => Yii::t('common', 'Тема'),
+            'template' => Yii::t('common', 'Шаблон'),
+            'params' => Yii::t('common', 'Параметры'),
+            'created_at' => Yii::t('common', 'Создано'),
+            'updated_at' => Yii::t('common', 'Обновлено'),
         ];
     }
 
