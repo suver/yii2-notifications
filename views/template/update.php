@@ -15,10 +15,31 @@ $this->params['breadcrumbs'][] = Yii::t('common', 'Редактировать');
 
 \suver\notifications\assets\AppAsset::register($this);
 ?>
-<div class="book-notifications-template-update">
+<div class="suver-notifications-template-update">
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+    <div class="box">
+        <div class="box-header">
+
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+            <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                <div class="row">
+                    <div class="col-sm-6"></div>
+                    <div class="col-sm-6"></div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <?= $this->render('_form', [
+                            'model' => $model,
+                        ]) ?>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.box-body -->
+    </div>
 
 </div>

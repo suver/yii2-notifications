@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 \suver\notifications\assets\AppAsset::register($this);
 ?>
-<div class="book-notifications-template-index">
+<div class="suver-notifications-template-index">
 
     <?php //echo $this->render('_search', ['model' => $searchModel]); ?>
 
