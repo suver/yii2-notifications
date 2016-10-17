@@ -8,9 +8,9 @@ use yii\widgets\Pjax;
 /* @var $searchModel suver\notifications\models\search\NotificationsTemplateSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('common', 'Шаблоны уведомлений');
-$this->params['breadcrumbs'][] = ['label' => Yii::t('common', 'Уведомления'), 'url' => ['default/index']];
-$this->params['breadcrumbs'][] = ['label' => Yii::t('common', 'Спсиок шаблонов'), 'url' => ['template/index']];
+$this->title = Yii::t('suver/notifications', 'Шаблоны уведомлений');
+$this->params['breadcrumbs'][] = ['label' => Yii::t('suver/notifications', 'Уведомления'), 'url' => ['default/index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('suver/notifications', 'Спсиок шаблонов'), 'url' => ['template/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 \suver\notifications\assets\AppAsset::register($this);
@@ -21,11 +21,11 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="box">
         <div class="box-header">
-            <?= Html::a(Yii::t('common', 'Добавить шаблон'), ['create'], ['class' => 'btn btn-success']) ?>
+            <?= Html::a(Yii::t('suver/notifications', 'Добавить шаблон'), ['create'], ['class' => 'btn btn-success']) ?>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-            <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap">
                 <div class="row">
                     <div class="col-sm-6"></div>
                     <div class="col-sm-6"></div>

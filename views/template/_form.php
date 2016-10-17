@@ -18,11 +18,11 @@ use yii\bootstrap\Modal;
 
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'subject')->textInput(['maxlength' => true]) ?>
-
     <?= $form->field($model, 'description')->widget(\suver\editor\Editor::className(), []); ?>
 
     <?= $form->field($model, 'params')->widget(\suver\editor\Editor::className(), []); ?>
+
+    <?= $form->field($model, 'subject')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'template')->widget(\suver\editor\Editor::className(), []); ?>
 
@@ -36,7 +36,7 @@ use yii\bootstrap\Modal;
     <?php // echo $form->field($model, 'updated_at')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('common', 'Добавить') : Yii::t('common', 'Сохранить'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('suver/notifications', 'Добавить') : Yii::t('suver/notifications', 'Сохранить'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

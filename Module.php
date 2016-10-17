@@ -1,6 +1,7 @@
 <?php
 
 namespace suver\notifications;
+
 use yii\base\BootstrapInterface;
 use Yii;
 
@@ -14,8 +15,14 @@ class Module extends \yii\base\Module implements BootstrapInterface
      */
     public $controllerNamespace = 'suver\notifications\controllers';
 
-    public $dataViewWidget = '\yii\widgets\DetailView';
+    public $detailViewWidget = '\yii\widgets\DetailView';
+
     public $gridViewWidget = '\yii\grid\GridView';
+
+
+    public $identityClass = '\app\models\User';
+
+    public $channels = [];
 
     public $defaultNotificationsTemplatePerPage = 25;
 
@@ -25,6 +32,18 @@ class Module extends \yii\base\Module implements BootstrapInterface
 
     public function bootstrap($app)
     {
+        // Add module I18N category.
+        $app->i18n->translations['suver/notifications'] = [
+            'class' => 'yii\i18n\PhpMessageSource',
+            'basePath' => '@app/suver/notifications/messages',
+            'forceTranslation' => true,
+            'fileMap' => [
+                'suver/notifications' => 'notifications.php',
+            ]
+        ];
+
+        Notifications::init($app);
+
         if ($app instanceof \yii\web\Application) {
             $app->getUrlManager()->addRules([
                 ['class' => 'yii\web\UrlRule', 'pattern' => $this->id, 'route' => $this->id . '/default/index'],

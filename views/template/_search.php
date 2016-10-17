@@ -26,8 +26,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'updated_at') ?>
 
     <div class="form-group">
-        <?= Html::submitButton(Yii::t('common', 'Поиск'), ['class' => 'btn btn-primary']) ?>
-        <?= Html::resetButton(Yii::t('common', 'Сбросить'), ['class' => 'btn btn-default']) ?>
+        <?= Html::submitButton(Yii::t('suver/notifications', 'Поиск'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::resetButton(Yii::t('suver/notifications', 'Сбросить'), ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

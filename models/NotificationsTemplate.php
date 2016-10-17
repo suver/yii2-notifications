@@ -27,8 +27,8 @@ class NotificationsTemplate extends \yii\db\ActiveRecord
 
     public function init() {
         static::$bind = [
-            self::BIND_YES => Yii::t("common", "Закреплен"),
-            self::BIND_NO => Yii::t("common", "Откреплет"),
+            self::BIND_YES => Yii::t("suver/notifications", "Закреплен"),
+            self::BIND_NO => Yii::t("suver/notifications", "Откреплет"),
         ];
     }
 
@@ -80,16 +80,16 @@ class NotificationsTemplate extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'key' => Yii::t('common', 'Ключь'),
-            'language' => Yii::t('common', 'Язык'),
-            'bind' => Yii::t('common', 'Закреплено?'),
-            'description' => Yii::t('common', 'Описнаие'),
-            'title' => Yii::t('common', 'Название'),
-            'subject' => Yii::t('common', 'Тема'),
-            'template' => Yii::t('common', 'Шаблон'),
-            'params' => Yii::t('common', 'Параметры'),
-            'created_at' => Yii::t('common', 'Создано'),
-            'updated_at' => Yii::t('common', 'Обновлено'),
+            'key' => Yii::t('suver/notifications', 'Ключь'),
+            'language' => Yii::t('suver/notifications', 'Язык'),
+            'bind' => Yii::t('suver/notifications', 'Закреплено?'),
+            'description' => Yii::t('suver/notifications', 'Описнаие'),
+            'title' => Yii::t('suver/notifications', 'Название'),
+            'subject' => Yii::t('suver/notifications', 'Тема'),
+            'template' => Yii::t('suver/notifications', 'Шаблон'),
+            'params' => Yii::t('suver/notifications', 'Параметры'),
+            'created_at' => Yii::t('suver/notifications', 'Создано'),
+            'updated_at' => Yii::t('suver/notifications', 'Обновлено'),
         ];
     }
 

@@ -7,8 +7,8 @@ use yii\widgets\DetailView;
 /* @var $model suver\notifications\models\NotificationsTemplate */
 
 $this->title = $model->title;
-$this->params['breadcrumbs'][] = ['label' => Yii::t('common', 'Уведомления'), 'url' => ['default/index']];
-$this->params['breadcrumbs'][] = ['label' => Yii::t('common', 'Спсиок шаблонов'), 'url' => ['template/index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('suver/notifications', 'Уведомления'), 'url' => ['default/index']];
+$this->params['breadcrumbs'][] = ['label' => Yii::t('suver/notifications', 'Спсиок шаблонов'), 'url' => ['template/index']];
 $this->params['breadcrumbs'][] = $this->title;
 
 \suver\notifications\assets\AppAsset::register($this);
@@ -17,18 +17,18 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <div class="box">
         <div class="box-header">
-            <?= Html::a(Yii::t('common', 'Редактировать'), ['update', 'key' => $model->key], ['class' => 'btn btn-primary']) ?>
-            <?= Html::a(Yii::t('common', 'Удалить'), ['delete', 'key' => $model->key], [
+            <?= Html::a(Yii::t('suver/notifications', 'Редактировать'), ['update', 'key' => $model->key], ['class' => 'btn btn-primary']) ?>
+            <?= Html::a(Yii::t('suver/notifications', 'Удалить'), ['delete', 'key' => $model->key], [
                 'class' => 'btn btn-danger',
                 'data' => [
-                    'confirm' => Yii::t('common', 'Вы уверены что хотите удалить эту запись?'),
+                    'confirm' => Yii::t('suver/notifications', 'Вы уверены что хотите удалить эту запись?'),
                     'method' => 'post',
                 ],
             ]) ?>
         </div>
         <!-- /.box-header -->
         <div class="box-body">
-            <div id="example2_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+            <div id="example2_wrapper" class="dataTables_wrapper dt-bootstrap">
                 <div class="row">
                     <div class="col-sm-6"></div>
                     <div class="col-sm-6"></div>
@@ -36,13 +36,12 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="row">
                     <div class="col-sm-12">
 
-                        <?php $widget = $module->dataViewWidget;
+                        <?php $widget = $module->detailViewWidget;
                         echo $widget::widget([
                             'model' => $model,
                             'attributes' => [
                                 'key',
                                 'title',
-                                'subject',
                                 [
                                     'attribute' => 'description',
                                     'format' => 'raw',
@@ -53,6 +52,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                     'format' => 'raw',
                                     'value' => \suver\editor\TransformationWidget::widget(['message' => $model->params]),
                                 ],
+                                'subject',
                                 [
                                     'attribute' => 'template',
                                     'format' => 'raw',

@@ -25,14 +25,15 @@ class m161008_180332_notifications extends Migration
         $this->db->createCommand("CREATE TABLE `suver_notifications` ( 
                 `id` BIGINT(20) NOT NULL AUTO_INCREMENT , 
                 `user_id` BIGINT(20) NOT NULL , 
-                `type` TINYINT(2) NULL DEFAULT NULL ,
+                `key_template` VARCHAR(100) NULL DEFAULT NULL ,
                 `subject` VARCHAR(255) NULL DEFAULT NULL , 
                 `message` TEXT NULL DEFAULT NULL , 
                 `params` TEXT NULL DEFAULT NULL , 
-                `channel` TINYINT(2) NULL DEFAULT NULL , 
+                `channel` VARCHAR(50) NULL DEFAULT NULL , 
                 `updated_at` TIMESTAMP NULL DEFAULT NULL , 
                 `created_at` TIMESTAMP NULL DEFAULT NULL , 
                 `viewed_at` TIMESTAMP NULL DEFAULT NULL , 
+                `sent_at` TIMESTAMP NULL DEFAULT NULL , 
                 PRIMARY KEY (`id`), 
                 INDEX `user_id` (`user_id`)
             ) ENGINE = InnoDB;")->execute();

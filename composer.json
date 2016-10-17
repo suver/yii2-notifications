@@ -12,7 +12,8 @@
     ],
     "require": {
         "yiisoft/yii2": "*",
-        "suver/yii2-editor": "*"
+        "suver/yii2-editor": "*",
+        "yiisoft/yii2-swiftmailer": "*"
     },
     "autoload": {
         "psr-4": {

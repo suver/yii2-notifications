@@ -9,13 +9,13 @@ Installation
 Either run
 
 ```
-php composer.phar require suver/yii2-notificatoins
+php composer.phar require suver/yii2-notifications
 ```
 
 or add
 
 ```
-"suver/yii2-notificatoins": "*"
+"suver/yii2-notifications": "*"
 ```
 
 Install migrations
